@@ -26,6 +26,27 @@ swift run            # 开发调试
 swift build -c release && swift test   # 发布构建 + 测试
 ```
 
+## 下载安装
+
+从 [Releases](https://github.com/DeanWanghewei/peggy-tools/releases) 下载最新版的 `PeggyTools-<version>.dmg`，打开后将 **Peggy Tools** 拖入「应用程序」。
+
+- 系统要求 macOS 13+，安装包为 arm64 + x86_64 通用二进制
+- 应用为 ad-hoc 签名：首次打开若被 Gatekeeper 拦截，右键点击应用 →「打开」→ 再点「打开」
+- 全局快捷键与剪贴板功能需要按设置页提示授予辅助功能权限
+
+## 版本与发布
+
+版本号以 git tag 为唯一来源（`vX.Y.Z`），并自动注入应用界面（底部状态栏）与安装包 Info.plist。发版只需：
+
+```bash
+git tag -a v1.2.0 -m "Peggy Tools v1.2.0"
+git push origin v1.2.0
+```
+
+推送 tag 后 GitHub Actions 自动完成：运行测试 → 构建通用二进制 → 组装 .app 并签名 → 产出 zip + dmg → 创建 GitHub Release（含安装说明）。
+
+本地复现完整打包流程：`./scripts/package-app.sh <version>`（产物输出到 `dist/`）。
+
 ## 项目结构
 
 ```
