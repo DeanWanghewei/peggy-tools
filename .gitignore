@@ -1,0 +1,16 @@
+# Swift Package Manager
+.build/
+
+# 打包产物
+dist/
+*.zip
+
+# 本地杂项
+.DS_Store
+
+# 已过期的 Xcode 工程（实际构建走 SPM，Xcode 请打开 Package.swift）
+PeggyTools.xcodeproj/
+
+# 本地 AI 工具配置
+.claude/
+.ais-project-config
